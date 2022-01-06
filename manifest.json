@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "HCL Accelerate Dot Links",
+  "description": "Adds link on GitHub PR and JIRA card to go to Dot in ValueStream",
+  "options_page": "popup.html",
+  "version": "1.0.16",
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "icons": {
+    "16": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["index.js"]
+    }
+  ]
+}

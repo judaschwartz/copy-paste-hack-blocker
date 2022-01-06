@@ -1,0 +1,28 @@
+body {
+    width: 300px;
+    background: #f5f7fa;
+}
+
+img {
+    width: 50px;
+    margin: 0 22px -5px;
+}
+
+h2 {
+    display: inline-block;
+    color: #07396d;
+}
+
+input, textarea {
+    width: 270px;
+    padding: 15px;
+    margin: 5px 0 15px;
+    border: 0;
+    color: #152935;
+    background: #e2e9f3;
+    outline: 0;
+}
+
+.wrapper {
+    padding: 10px 0 0;
+}
