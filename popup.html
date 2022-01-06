@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Disable Copy Listeners</title>
+    <title>Catch Copy Paste Hack</title>
     <script src="popup.js"></script>
     <link type="text/css" rel="stylesheet" href="popup.css"">
   </head>
   <body>
     <img src="icon.png">
-    <h2>Disable Copy Listeners</h2>
+    <h2>Stop Copy Switches</h2>
     <div class="wrapper">
-      <label>Disable Copy Listeners</label>
-      <input type="checkbox" id="enabled">
+      <label class="switch">
+        <input id="enabled" class="switch-input" type="checkbox" />
+        <span class="switch-label" data-on="Auto" data-off="Ask"></span> 
+        <span class="switch-handle"></span> 
+      </label>
     </div>
   </body>
 </html>
