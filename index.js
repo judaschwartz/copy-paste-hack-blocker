@@ -4,7 +4,8 @@ chrome.storage.sync.get({
     document.addEventListener('copy', (e) => {
         setTimeout(checkCopy, 10, document.getSelection().toString())
         function checkCopy (selection) {
-            const input = document.createElement("input")
+            const input = document.createElement("textarea")
+            input.style.position = "fixed"
             document.body.appendChild(input)
             input.focus()
             document.execCommand("paste")
