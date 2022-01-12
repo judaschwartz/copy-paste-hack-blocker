@@ -3,7 +3,7 @@
   "name": "Copy Paste Hack Blocker",
   "description": "Protects the user from having the selected text of a web page changed when they are trying to copy text",
   "options_page": "popup.html",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"

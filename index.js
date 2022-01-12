@@ -3,15 +3,19 @@ chrome.storage.sync.get({
 }, function(items) {
     document.addEventListener('copy', (e) => {
         setTimeout(checkCopy, 10, document.getSelection().toString())
-        function checkCopy (selection) {
-            const input = document.createElement("textarea")
-            input.style.position = "fixed"
-            document.body.appendChild(input)
-            input.focus()
-            document.execCommand("paste")
-            const clip = input.value
-            document.body.removeChild(input)
-            const message = `
+    }, true)
+    document.addEventListener('cut', (e) => {
+        setTimeout(checkCopy, 10, document.getSelection().toString())
+    }, true)
+    function checkCopy (selection) {
+        const input = document.createElement("textarea")
+        input.style.position = "fixed"
+        document.body.appendChild(input)
+        input.focus()
+        document.execCommand("paste")
+        const clip = input.value
+        document.body.removeChild(input)
+        const message = `
 The text copied to your clipboard does not match the selected text.
 The text selected on this page starts with: 
 
@@ -22,14 +26,16 @@ The text copied to your clipboard starts with:
 ${clip.slice(0, 400)}
 
 Do you want to put the selected text in your clipboard instead?`
-            if (clip && selection !== clip && (items.enabled || confirm(message))) {
-                const i = document.createElement('textarea')
-                i.innerHTML = selection
+        if (clip && selection !== clip) {
+            const i = document.createElement('textarea')
+            i.innerHTML = selection
+            selection = i.value.replace(/\u00a0/g, ' ')
+            if (selection !== clip && (items.enabled || confirm(message))) {
                 document.body.appendChild(i)
                 i.select()
                 document.execCommand('copy')
                 document.body.removeChild(i)
             }
         }
-    }, true)
+    }
 })
